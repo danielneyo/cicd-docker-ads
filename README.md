@@ -7,12 +7,12 @@ Projeto desenvolvido para a disciplina de **Gerenciamento de Configuração de S
 | Membro | Responsabilidade |
 |--------|-----------------|
 | Daniel (Líder) | Repositório, pipeline CI/CD e coordenação |
-| Membro 2 | Endpoints GET e POST da API |
-| Membro 3 | Endpoints PUT e DELETE da API |
-| Membro 4 | Dockerfile multi-stage e docker-compose |
-| Membro 5 | Testes automatizados |
-| Membro 6 | Documentação e README |
-| Membro 7 | QA, Docker Hub e entrega |
+| Alberto | Endpoints GET e POST da API |
+| Ester | Endpoints PUT e DELETE da API |
+| Tainá | Dockerfile multi-stage e docker-compose |
+| Emerson | Testes automatizados |
+| Marjory | Documentação e README |
+| Hícaro | QA, Docker Hub e entrega |
 
 ---
 
