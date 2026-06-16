@@ -52,11 +52,13 @@ flowchart LR
 
 ## 🐳 Executar localmente com Docker
 
+A aplicação foi totalmente conteinerizada utilizando boas práticas de mercado, como **Build Multi-stage** (para manter a imagem leve) e execução com **usuário não-root** (para maior segurança).
+
 **Pré-requisito:** Docker instalado
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/danielneyo/cicd-docker-ads
+git clone [https://github.com/danielneyo/cicd-docker-ads](https://github.com/danielneyo/cicd-docker-ads)
 cd cicd-docker-ads
 
 # Subir a aplicação
@@ -93,12 +95,35 @@ test_main.py::test_atualizar_tarefa          PASSED
 
 ## 📸 Evidências do Pipeline
 
-> *(Adicionar aqui screenshots do GitHub Actions com os 3 jobs em verde após o primeiro push na main)*
+Aqui estão as capturas de tela que comprovam a execução bem-sucedida de todo o fluxo automatizado no GitHub Actions (Jobs de Teste, Build e Deploy):
+> ![Pipeline CI/CD em verde](img/pipeline-verde.jpg)
 
+
+![Execução do GitHub Actions](img/github-actions.jpg)
+
+
+![Pipeline executado com sucesso](img/pipeline-ci-cd.jpg)
+
+
+
+> 💡 **Nota:** O pipeline foi executado com sucesso no GitHub Actions, contemplando com êxito as etapas de testes automatizados (CI), geração da imagem Docker (Build) e publicação no Docker Hub (CD).
+---
 ---
 
 ## 🐋 Imagem no Docker Hub
 
+![Docker Hub](img/docker-hub.jpg)
+
+```bash
+docker pull hicaroluiz/api-tarefas:v1.0.3
+
+
 ```
-docker pull danielneyo/api-tarefas:latest
-```
+## 📖 Documentações Complementares
+
+Para informações mais detalhadas sobre cada etapa específica do projeto, consulte os arquivos dedicados criados pela equipe:
+
+* 🐳 **Configuração do Docker e Docker Hub:** Detalhes sobre o Dockerfile multi-stage, boas práticas de segurança e publicação da imagem. Acesse: **[DUCKERHUB.md](./DUCKERHUB.md)**
+* 🔌 **Endpoints da API:** Documentação técnica contendo as rotas, métodos (GET, POST, PUT, DELETE) e exemplos de requisição. Acesse: **[ENDPOINTS.md](./ENDPOINTS.md)**
+* 🧪 **Relatório de Testes:** Cobertura de testes automatizados e validações de qualidade de software (QA). Acesse: **[relatorio-testes.md](./relatorio-testes.md)**
+
