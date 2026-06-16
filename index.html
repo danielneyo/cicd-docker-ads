@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API de Tarefas — CI/CD com Docker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="badge">ADS · Gerenciamento de Configuração de Software</div>
+  <h1>API de <span>Tarefas</span></h1>
+  <p>Pipeline CI/CD com GitHub Actions e Docker · Prof. Adriano França</p>
+  <div class="header-links">
+    <a href="https://github.com/danielneyo/cicd-docker-ads" target="_blank">⬡ GitHub</a>
+    <a href="https://hub.docker.com/r/hicaroluiz/api-tarefas" target="_blank">🐳 Docker Hub</a>
+    <a href="/docs" target="_blank">📋 API Docs</a>
+    <a href="/health" target="_blank">❤️ Health Check</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- STATS -->
+  <div class="section-title">📊 Estatísticas do Projeto</div>
+  <div class="stats">
+    <div class="stat"><div class="val">6</div><div class="lbl">Endpoints</div></div>
+    <div class="stat"><div class="val">6</div><div class="lbl">Testes</div></div>
+    <div class="stat"><div class="val">3</div><div class="lbl">Jobs CI/CD</div></div>
+    <div class="stat"><div class="val">7</div><div class="lbl">Membros</div></div>
+  </div>
+
+  <!-- DEMO -->
+  <div class="section-title">✅ Demo — Lista de Tarefas</div>
+  <div class="demo-card">
+    <div class="demo-title">📋 Gerenciar Tarefas</div>
+    <div class="api-status"><div class="dot"></div> API Online</div>
+    <div class="task-input-row">
+      <input class="task-input" id="task-input" type="text" placeholder="Digite uma nova tarefa..." />
+      <button class="btn-add" onclick="addTask()">+ Adicionar</button>
+    </div>
+    <div id="task-list">
+      <div class="empty-state">Nenhuma tarefa ainda. Adicione uma acima! 👆</div>
+    </div>
+  </div>
+
+  <!-- ENDPOINTS -->
+  <div class="section-title">💻 Endpoints da API</div>
+  <div class="endpoints-grid">
+    <div class="endpoint-row"><span class="method get">GET</span><span class="endpoint-path">/health</span><span class="endpoint-desc">Verifica saúde da API</span></div>
+    <div class="endpoint-row"><span class="method get">GET</span><span class="endpoint-path">/tarefas</span><span class="endpoint-desc">Lista todas as tarefas</span></div>
+    <div class="endpoint-row"><span class="method post">POST</span><span class="endpoint-path">/tarefas</span><span class="endpoint-desc">Cria nova tarefa → status 201</span></div>
+    <div class="endpoint-row"><span class="method get">GET</span><span class="endpoint-path">/tarefas/{id}</span><span class="endpoint-desc">Busca tarefa por ID → 200 ou 404</span></div>
+    <div class="endpoint-row"><span class="method put">PUT</span><span class="endpoint-path">/tarefas/{id}</span><span class="endpoint-desc">Atualiza tarefa → 200 ou 404</span></div>
+    <div class="endpoint-row"><span class="method delete">DELETE</span><span class="endpoint-path">/tarefas/{id}</span><span class="endpoint-desc">Remove tarefa → 200 ou 404</span></div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="section-title">⚙️ Pipeline CI/CD</div>
+  <div class="pipeline">
+    <div class="pipeline-step ci">
+      <div class="step-icon">🧪</div>
+      <div class="step-title ci-color">CI — Testes</div>
+      <div class="step-desc">Instala deps · Roda pytest · Publica relatório</div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step build">
+      <div class="step-icon">🏗️</div>
+      <div class="step-title build-color">Build — Docker</div>
+      <div class="step-desc">Constrói imagem · Valida Dockerfile</div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step cd">
+      <div class="step-icon">🚢</div>
+      <div class="step-title cd-color">CD — Docker Hub</div>
+      <div class="step-desc">Push da imagem · Tags latest + v1.0.X</div>
+    </div>
+  </div>
+
+  <!-- EQUIPE -->
+  <div class="section-title">👥 Nossa Equipe</div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="avatar av-daniel">D</div>
+      <div><div class="team-name">Daniel</div><div class="team-role">Líder · Pipeline CI/CD</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-alberto">A</div>
+      <div><div class="team-name">Alberto</div><div class="team-role">API · GET e POST</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-ester">E</div>
+      <div><div class="team-name">Ester</div><div class="team-role">API · PUT e DELETE</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-taina">T</div>
+      <div><div class="team-name">Tainá</div><div class="team-role">Docker · Containerização</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-emerson">E</div>
+      <div><div class="team-name">Emerson</div><div class="team-role">Testes Automatizados</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-marjory">M</div>
+      <div><div class="team-name">Marjory</div><div class="team-role">Documentação · README</div></div>
+    </div>
+    <div class="team-card">
+      <div class="avatar av-hicaro">H</div>
+      <div><div class="team-name">Hicaro</div><div class="team-role">QA · Docker Hub · Entrega</div></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  API de Tarefas · CI/CD com Docker · ADS · Prof. Adriano França · 2026
+</footer>
+
+<script>
+  let tasks = [];
+  let nextId = 1;
+
+  function addTask() {
+    const input = document.getElementById('task-input');
+    const titulo = input.value.trim();
+    if (!titulo) return;
+    tasks.push({ id: nextId++, titulo, concluida: false });
+    input.value = '';
+    renderTasks();
+  }
+
+  function toggleTask(id) {
+    const t = tasks.find(t => t.id === id);
+    if (t) t.concluida = !t.concluida;
+    renderTasks();
+  }
+
+  function deleteTask(id) {
+    tasks = tasks.filter(t => t.id !== id);
+    renderTasks();
+  }
+
+  function renderTasks() {
+    const list = document.getElementById('task-list');
+    if (tasks.length === 0) {
+      list.innerHTML = '<div class="empty-state">Nenhuma tarefa ainda. Adicione uma acima! 👆</div>';
+      return;
+    }
+    list.innerHTML = tasks.map(t => `
+      <div class="task-item">
+        <div class="task-check ${t.concluida ? 'done' : ''}" onclick="toggleTask(${t.id})"></div>
+        <span class="task-text ${t.concluida ? 'done' : ''}">${t.titulo}</span>
+        <span class="task-id">id: ${t.id}</span>
+        <button class="btn-delete" onclick="deleteTask(${t.id})">🗑️</button>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('task-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addTask();
+  });
+</script>
+
+</body>
+</html>
